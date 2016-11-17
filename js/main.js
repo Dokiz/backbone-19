@@ -13,7 +13,9 @@
 			vent.on('specialTasks:show', this.show, this);
 		},
 		show: function(id){
-			console.log('выведем задачу с id:' +id);
+			var specialTask = this.collection.get('id');
+			var specialTaskView = new App.View.specialTask({model: specialTask});
+			$('body').append(specialTaskView.render().el);
 		}
 	});
 
@@ -32,7 +34,7 @@
 		}
 	});
 	
-	new App.Views.specialTasks;
+	new App.Views.SpecialTasks({collection: someCollection});
 	
 	new App.Router;
 	Backbone.history.start();
