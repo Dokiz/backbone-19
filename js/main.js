@@ -5,6 +5,10 @@
         Views: {},
 		Router: {}
     };
+	
+	var vent = _.extend({}, Backbone.Events);
+	
+	console.log(vent);
 
     App.Router = Backbone.Router.extend({
 		routes: {
@@ -13,7 +17,7 @@
 		},
 		
 		showSpecialTasks: function(id){
-			console.log(id);
+			vent.trigger('specialTasks:show', id);
 		},
 		
 		start: function(){
